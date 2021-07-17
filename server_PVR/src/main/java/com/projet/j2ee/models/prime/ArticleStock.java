@@ -1,4 +1,4 @@
-package com.projet.j2ee.models;
+package com.projet.j2ee.models.prime;
 
 import java.io.Serializable;
 
@@ -29,6 +29,42 @@ public class ArticleStock  implements Serializable {
     private int qte;
 	@ManyToOne(targetEntity = Article.class, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH })
 	private Article article;
+	public ArticleStock( int prixArt, int qte, Article article) {
+		super();
+		this.prixArt = prixArt;
+		this.qte = qte;
+		this.article = article;
+	}
+	public ArticleStock() {}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getPrixArt() {
+		return prixArt;
+	}
+	public void setPrixArt(int prixArt) {
+		this.prixArt = prixArt;
+	}
+	public int getQte() {
+		return qte;
+	}
+	public void setQte(int qte) {
+		this.qte = qte;
+	}
+	public Article getArticle() {
+		return article;
+	}
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+	@Override
+	public String toString() {
+		return "ArticleStock [id=" + id + ", prixArt=" + prixArt + ", qte=" + qte + ", article=" + article + "]";
+	}
+	
 	
    
 }
