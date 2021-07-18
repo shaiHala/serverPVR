@@ -10,43 +10,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projet.j2ee.models.g_stock.Article;
-import com.projet.j2ee.service.g_stock.ArticleService;
+import com.projet.j2ee.models.g_vente.Commande;
+import com.projet.j2ee.service.g_vente.CommandeService;
 
 @RestController
-@RequestMapping("/articles")
+@RequestMapping("/commande")
 @CrossOrigin
-public class ArticleRestController {
+public class CommandeRestController {
 	@Autowired
-	ArticleService articleService;
+	CommandeService commService;
 	
 	@RequestMapping(value="/all" ,method=RequestMethod.GET)
-	public List<Article> getAllArticles()
+	public List<Commande> getAllCommandes()
 	{
-		return articleService.getAllArticles();
+		return commService.getAllCommande();
 	}
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
-	public Article getArticleById(@PathVariable("id") int id) {
-		return articleService.getArticle(id);
+	public Commande getCommandeById(@PathVariable("id") int id) {
+		return commService.getCommande(id);
 	}
 	
 	@RequestMapping(value="/add",method = RequestMethod.POST)
-	public Article createArticle(@RequestBody Article article) {
-			return articleService.saveArticle(article);
+	public Commande createCommande(@RequestBody Commande cmd) {
+			return commService.saveCommande(cmd);
 	}
 		
 	@RequestMapping(method = RequestMethod.POST)
-	public Article updateArticle(@RequestBody Article article) {
-		return articleService.updateArticle(article);
+	public Commande updateCommande(@RequestBody Commande cmd) {
+		return commService.updateCommande(cmd);
 	}
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
-	public void deleteArticle(@PathVariable("id") int id)
+	public void deleteCommande(@PathVariable("id") int id)
 	{
-		articleService.deleteArticleById(id);
+		commService.deleteCommandeById(id);
 	}
 	
 	
-
 }

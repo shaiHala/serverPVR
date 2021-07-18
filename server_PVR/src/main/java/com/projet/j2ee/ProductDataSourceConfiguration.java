@@ -18,7 +18,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.zaxxer.hikari.HikariDataSource;
  
 @Configuration
-@EnableJpaRepositories(basePackages = "com.oukhira.test.repos.product", entityManagerFactoryRef = "productEntityManager", transactionManagerRef = "productTransactionManager")
+@EnableJpaRepositories(basePackages = "com.projet.j2ee.repos.g_vente", entityManagerFactoryRef = "productEntityManager", transactionManagerRef = "productTransactionManager")
 public class ProductDataSourceConfiguration {
  
     @Autowired
@@ -39,7 +39,7 @@ public class ProductDataSourceConfiguration {
     public LocalContainerEntityManagerFactoryBean productEntityManager() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(productDataSource());
-        em.setPackagesToScan("com.oukhira.test.models.product");
+        em.setPackagesToScan("com.projet.j2ee.models.g_vente");
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         HashMap<String, Object> properties = new HashMap<>();

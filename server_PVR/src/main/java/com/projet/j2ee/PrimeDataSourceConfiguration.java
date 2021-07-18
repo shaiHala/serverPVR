@@ -19,7 +19,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.zaxxer.hikari.HikariDataSource;
  
 @Configuration
-@EnableJpaRepositories(basePackages = "com.projet.j2ee.repos.prime", entityManagerFactoryRef = "primeEntityManager", transactionManagerRef = "primeTransactionManager")
+@EnableJpaRepositories(basePackages = "com.projet.j2ee.repos.g_stock", entityManagerFactoryRef = "primeEntityManager", transactionManagerRef = "primeTransactionManager")
 public class PrimeDataSourceConfiguration {
  
     @Autowired
@@ -43,7 +43,7 @@ public class PrimeDataSourceConfiguration {
     public LocalContainerEntityManagerFactoryBean primeEntityManager() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(primeDataSource());
-        em.setPackagesToScan("com.projet.j2ee.models.prime");
+        em.setPackagesToScan("com.projet.j2ee.models.g_stock");
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         HashMap<String, Object> properties = new HashMap<>();

@@ -10,43 +10,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projet.j2ee.models.g_stock.Article;
-import com.projet.j2ee.service.g_stock.ArticleService;
+import com.projet.j2ee.models.g_vente.Client;
+import com.projet.j2ee.service.g_vente.ClientService;
 
 @RestController
-@RequestMapping("/articles")
+@RequestMapping("/client")
 @CrossOrigin
-public class ArticleRestController {
+public class ClientRestController {
+
 	@Autowired
-	ArticleService articleService;
+	ClientService cltService;
 	
-	@RequestMapping(value="/all" ,method=RequestMethod.GET)
-	public List<Article> getAllArticles()
+	@RequestMapping(value="/all",method=RequestMethod.GET)
+	public List<Client> getAllClients()
 	{
-		return articleService.getAllArticles();
+		return cltService.getAllClient();
 	}
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
-	public Article getArticleById(@PathVariable("id") int id) {
-		return articleService.getArticle(id);
+	public Client getClientById(@PathVariable("id") int id) {
+		return cltService.getClient(id);
 	}
 	
 	@RequestMapping(value="/add",method = RequestMethod.POST)
-	public Article createArticle(@RequestBody Article article) {
-			return articleService.saveArticle(article);
+	public Client createClient(@RequestBody Client article) {
+			return cltService.saveClient(article);
 	}
 		
 	@RequestMapping(method = RequestMethod.POST)
-	public Article updateArticle(@RequestBody Article article) {
-		return articleService.updateArticle(article);
+	public Client updateClient(@RequestBody Client article) {
+		return cltService.updateClient(article);
 	}
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
-	public void deleteArticle(@PathVariable("id") int id)
+	public void deleteClient(@PathVariable("id") int id)
 	{
-		articleService.deleteArticleById(id);
+		cltService.deleteClientById(id);
 	}
 	
 	
-
 }

@@ -3,25 +3,22 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.projet.j2ee.models.product.test;
-import com.projet.j2ee.repos.product.testRepository;
-import com.projet.j2ee.models.prime.Article;
-import com.projet.j2ee.repos.prime.ArticleRepository;
-import com.projet.j2ee.repos.prime.*;
+import com.projet.j2ee.models.g_stock.Article;
+import com.projet.j2ee.models.g_vente.Client;
+import com.projet.j2ee.repos.g_stock.*;
+import com.projet.j2ee.repos.g_vente.ClientRepository;
 
 @SpringBootTest
 class ServerPvrApplicationTests {
 
 
 
-    @Autowired 
-    private FournisseurRepository frRep;
     @Autowired
-    private ArticleRepository arRep;
+    private ClientRepository cRep;
     @Test
     public void testCreateArticle() {
     	
-    	Article ar = new  Article( 3360, 500, "test2", "thahah");
-    	arRep.save(ar);
+    	Client c = new  Client("Oukhira","Meknes","09090909");
+    	cRep.save(c);
     }
 }

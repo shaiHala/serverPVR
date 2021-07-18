@@ -10,43 +10,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projet.j2ee.models.g_stock.Article;
-import com.projet.j2ee.service.g_stock.ArticleService;
+import com.projet.j2ee.models.g_vente.LigneCmd;
+import com.projet.j2ee.service.g_vente.LigneCmdService;
+
 
 @RestController
-@RequestMapping("/articles")
+@RequestMapping("/ligneCmd")
 @CrossOrigin
-public class ArticleRestController {
+public class LigneCommandeRestController {
 	@Autowired
-	ArticleService articleService;
+	LigneCmdService ligneCmdService;
 	
 	@RequestMapping(value="/all" ,method=RequestMethod.GET)
-	public List<Article> getAllArticles()
+	public List<LigneCmd> getAllLigneCmds()
 	{
-		return articleService.getAllArticles();
+		return ligneCmdService.getAllLigneCmd();
 	}
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
-	public Article getArticleById(@PathVariable("id") int id) {
-		return articleService.getArticle(id);
+	public LigneCmd getLigneCmdById(@PathVariable("id") int id) {
+		return ligneCmdService.getLigneCmd(id);
 	}
 	
 	@RequestMapping(value="/add",method = RequestMethod.POST)
-	public Article createArticle(@RequestBody Article article) {
-			return articleService.saveArticle(article);
+	public LigneCmd createLigneCmd(@RequestBody LigneCmd ligneCmd) {
+			return ligneCmdService.saveLigneCmd(ligneCmd);
 	}
 		
 	@RequestMapping(method = RequestMethod.POST)
-	public Article updateArticle(@RequestBody Article article) {
-		return articleService.updateArticle(article);
+	public LigneCmd updateLigneCmd(@RequestBody LigneCmd ligneCmd) {
+		return ligneCmdService.updateLigneCmd(ligneCmd);
 	}
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
-	public void deleteArticle(@PathVariable("id") int id)
+	public void deleteLigneCmd(@PathVariable("id") int id)
 	{
-		articleService.deleteArticleById(id);
+		ligneCmdService.deleteLigneCmdById(id);
 	}
 	
-	
-
 }

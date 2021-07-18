@@ -10,43 +10,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projet.j2ee.models.g_stock.Article;
-import com.projet.j2ee.service.g_stock.ArticleService;
+import com.projet.j2ee.models.g_vente.Facture;
+import com.projet.j2ee.service.g_vente.FactureService;
+
+
 
 @RestController
-@RequestMapping("/articles")
+@RequestMapping("/facture")
 @CrossOrigin
-public class ArticleRestController {
+public class FactureRestController {
 	@Autowired
-	ArticleService articleService;
+	FactureService factService;
 	
 	@RequestMapping(value="/all" ,method=RequestMethod.GET)
-	public List<Article> getAllArticles()
+	public List<Facture> getAllFactures()
 	{
-		return articleService.getAllArticles();
+		return factService.getAllFacture();
 	}
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
-	public Article getArticleById(@PathVariable("id") int id) {
-		return articleService.getArticle(id);
+	public Facture getFactureById(@PathVariable("id") int id) {
+		return factService.getFacture(id);
 	}
 	
 	@RequestMapping(value="/add",method = RequestMethod.POST)
-	public Article createArticle(@RequestBody Article article) {
-			return articleService.saveArticle(article);
+	public Facture createFacture(@RequestBody Facture fr) {
+			return factService.saveFacture(fr);
 	}
 		
 	@RequestMapping(method = RequestMethod.POST)
-	public Article updateArticle(@RequestBody Article article) {
-		return articleService.updateArticle(article);
+	public Facture updateFacture(@RequestBody Facture fr) {
+		return factService.updateFacture(fr);
 	}
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
-	public void deleteArticle(@PathVariable("id") int id)
+	public void deleteFacture(@PathVariable("id") int id)
 	{
-		articleService.deleteArticleById(id);
+		factService.deleteFactureById(id);
 	}
 	
 	
-
 }
