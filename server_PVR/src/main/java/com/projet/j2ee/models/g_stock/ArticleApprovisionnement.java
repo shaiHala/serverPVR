@@ -25,46 +25,19 @@ public class ArticleApprovisionnement  implements Serializable {
 	@Basic
     private int qteCmd;
 	@Basic
-    private Date datePreLivrison;
-	@ManyToOne(targetEntity = Article.class, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH })
+    private String statusCmd;
+	@Basic
+	private int prixArt;
+	@Basic
+    private String datePreLivrison;
+	@ManyToOne(targetEntity = Article.class)
 	private Article article;
-	public ArticleApprovisionnement(int id, int qteCmd, Date datePreLivrison, Article article) {
-		super();
-		this.id = id;
-		this.qteCmd = qteCmd;
-		this.datePreLivrison = datePreLivrison;
-		this.article = article;
-	}
-    public ArticleApprovisionnement() {}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public int getQteCmd() {
-		return qteCmd;
-	}
-	public void setQteCmd(int qteCmd) {
-		this.qteCmd = qteCmd;
-	}
-	public Date getDatePreLivrison() {
-		return datePreLivrison;
-	}
-	public void setDatePreLivrison(Date datePreLivrison) {
-		this.datePreLivrison = datePreLivrison;
-	}
-	public Article getArticle() {
-		return article;
-	}
-	public void setArticle(Article article) {
-		this.article = article;
-	}
-	@Override
-	public String toString() {
-		return "ArticleApprovisionnement [id=" + id + ", qteCmd=" + qteCmd + ", datePreLivrison=" + datePreLivrison
-				+ ", article=" + article + "]";
-	}
+	
+	@ManyToOne(targetEntity = Fournisseur.class)
+	private Fournisseur fr;
+	
+	
+
     
 
 }

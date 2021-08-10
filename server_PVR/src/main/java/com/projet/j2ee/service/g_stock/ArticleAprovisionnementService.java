@@ -11,4 +11,5 @@ public interface ArticleAprovisionnementService {
 	void deleteArticleApprovisionnementById(int  id);
 	ArticleApprovisionnement getArticleApprovisionnement(int  id);
 	List<ArticleApprovisionnement> getAllArticleApprovisionnements();
+	String test();
 }

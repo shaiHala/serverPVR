@@ -50,5 +50,6 @@ public class ArticleStockServiceImpl implements ArticleStockService {
 		return ArticleStockRepository.findAll();
 	}
 
+	
 
 }

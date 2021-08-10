@@ -26,40 +26,15 @@ public class Client {
 	   private String   adreessClt;
 		@Basic
 	   private String  contact;
+		public Client(String nomClt, String adreessClt, String contact) {
+			super();
+			this.nomClt = nomClt;
+			this.adreessClt = adreessClt;
+			this.contact = contact;
+		}
    
-   public Client(String nomClt, String adreessClt, String contact) {
-		super();
-		this.nomClt = nomClt;
-		this.adreessClt = adreessClt;
-		this.contact = contact;
-	}
-   public Client() {}
-	public int getIdClt() {
-		return idClt;
-	}
-	public void setIdClt(int idClt) {
-		this.idClt = idClt;
-	}
-	public String getNomClt() {
-		return nomClt;
-	}
-	public void setNomClt(String nomClt) {
-		this.nomClt = nomClt;
-	}
-	public String getAdreessClt() {
-		return adreessClt;
-	}
-	public void setAdreessClt(String adreessClt) {
-		this.adreessClt = adreessClt;
-	}
-	public String getContact() {
-		return contact;
-	}
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-   
-   
+  
+    
    
    
    

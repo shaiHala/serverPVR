@@ -23,37 +23,6 @@ public class LigneCmd{
 	private Client Clt;
 	@ManyToOne 
 	private Commande Cmd;
-	public LigneCmd(Client clt, Commande cmd) {
-		super();
-		Clt = clt;
-		Cmd = cmd;
-	}
-	
-	public LigneCmd() {}
 
-	public int getCodeLigneCmd() {
-		return codeLigneCmd;
-	}
-
-	public void setCodeLigneCmd(int codeLigneCmd) {
-		this.codeLigneCmd = codeLigneCmd;
-	}
-
-	public Client getClt() {
-		return Clt;
-	}
-
-	public void setClt(Client clt) {
-		Clt = clt;
-	}
-
-	public Commande getCmd() {
-		return Cmd;
-	}
-
-	public void setCmd(Commande cmd) {
-		Cmd = cmd;
-	}
-	
 
 }

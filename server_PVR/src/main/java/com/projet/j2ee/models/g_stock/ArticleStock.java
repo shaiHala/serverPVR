@@ -29,16 +29,14 @@ public class ArticleStock  implements Serializable {
     private int qte;
 	@ManyToOne(targetEntity = Article.class, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH })
 	private Article article;
+
 	public ArticleStock( int prixArt, int qte, Article article) {
 		super();
 		this.prixArt = prixArt;
 		this.qte = qte;
 		this.article = article;
 	}
-	public ArticleStock() {}
-	public int getId() {
-		return id;
-	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -60,11 +58,7 @@ public class ArticleStock  implements Serializable {
 	public void setArticle(Article article) {
 		this.article = article;
 	}
-	@Override
-	public String toString() {
-		return "ArticleStock [id=" + id + ", prixArt=" + prixArt + ", qte=" + qte + ", article=" + article + "]";
-	}
-	
+		
 	
    
 }

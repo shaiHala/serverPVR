@@ -48,6 +48,12 @@ public class ArticleApprovisionnementRestController {
 		articleAprovisionnementService.deleteArticleApprovisionnementById(id);
 	}
 	
+	@RequestMapping(value="/tst",method = RequestMethod.GET)
+	public String test()
+	{
+		return articleAprovisionnementService.test();
+	}
+	
 	
 	
 	
